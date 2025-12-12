@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Revo Suplementos</title>
+</head>
+<body>
+    <h1>Revo Suplementos</h1>
+
+    {% for produto in produtos %}
+        <div>
+            <h3>{{ produto.nome }}</h3>
+            <p>{{ produto.descricao }}</p>
+            <p>R$ {{ produto.preco }}</p>
+
+            {% if produto.imagem %}
+                <img src="{{ produto.imagem.url }}" width="200">
+            {% endif %}
+        </div>
+        <hr>
+    {% empty %}
+        <p>Nenhum produto cadastrado.</p>
+    {% endfor %}
+</body>
+</html>
