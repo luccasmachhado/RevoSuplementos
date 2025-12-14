@@ -15,10 +15,10 @@
 
 <main class="produtos">
     {% for produto in produtos %}
-        <div class="produto">
+        <div class="produto-card">
             <h3>{{ produto.nome }}</h3>
             <div class="img-produto">
-                <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+                <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">    
             </div>
             <h4>Descrição:</h4>
             <p class="descricao">
@@ -40,11 +40,11 @@
                     <span class="sem-estoque">Produto indisponível</span>
                 {% endif %}
             </p>
-            <strong>
+            <strong class="preco">
                 R$ {{ produto.preco }}
             </strong>
             {% if produto.estoque > 0 %}
-                <a href="{% url 'reservar' produto.id %}">
+                <a class="btn-reservar" href="{% url 'reservar' produto.id %}">
                     Reservar
                 </a>
             {% else %}
@@ -87,7 +87,7 @@
 </html>
 <script>
 function toggleDescricao(botao) {
-    const produto = botao.closest('.produto');
+    const produto = botao.closest('.produto-card');
     const textoCurto = produto.querySelector('.texto-curto');
     const textoCompleto = produto.querySelector('.texto-completo');
 
