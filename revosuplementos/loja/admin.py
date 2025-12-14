@@ -6,7 +6,7 @@ from django.utils import timezone
 
 @admin.register(Reserva)
 class ReservaAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'produto', 'quantidade', 'status', 'expira_em')
+    list_display = ('nome', 'telefone', 'produto', 'quantidade', 'status', 'expira_em')
     list_filter = ('status', 'produto')
     search_fields = ('nome', 'telefone')
     actions = ['deferir_reserva', 'cancelar_reservas']

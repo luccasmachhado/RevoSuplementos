@@ -9,6 +9,7 @@
     <h1>Reservar produto</h1>
 
     <h2>{{ produto.nome }}</h2>
+    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
     <p>{{ produto.descricao }}</p>
     <p><strong>Estoque disponível:</strong> {{ produto.estoque }}</p>
 

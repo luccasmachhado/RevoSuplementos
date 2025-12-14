@@ -26,8 +26,8 @@ body {
 }
 
 .card img {
-    max-width: 100%;
-    height: 180px;
+    max-width: 180px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -80,5 +80,26 @@ body {
     border-radius: 10px;
     text-align: center;
 }
+
+.img-produto {
+    width: 100%;
+    height: 200px; /* altura padrão */
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f5f5f5;
+}
+
+.img-produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* corta sem distorcer */
+}
+
+@media (max-width: 768px) {
+    .img-produto {
+        height: 160px;
+    }
+}
+
 
 
