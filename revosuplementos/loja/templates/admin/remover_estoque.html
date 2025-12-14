@@ -1,0 +1,22 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+    <h1>Remover unidades do estoque</h1>
+
+    <p><strong>Produtos selecionados:</strong></p>
+    <ul>
+    {% for produto in produtos %}
+        <li>
+        {{ produto.nome }} —
+        Estoque atual: {{ produto.estoque }}
+        </li>
+    {% endfor %}
+    </ul>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="action" value="remover_estoque">
+        <input type="submit" name="aplicar" value="Remover estoque" class="default">
+    </form>
+{% endblock %}

@@ -1,25 +1,108 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Revo Suplementos</title>
+    <link rel="stylesheet" href="{% static 'loja/style.css' %}">
 </head>
 <body>
+
+<header class="topo">
     <h1>Revo Suplementos</h1>
+    <p>Potencialize seus resultados</p>
+</header>
 
+<main class="produtos">
     {% for produto in produtos %}
-        <div>
+        <div class="produto">
             <h3>{{ produto.nome }}</h3>
-            <p>{{ produto.descricao }}</p>
-            <p>R$ {{ produto.preco }}</p>
+            <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+            <h4>Descrição:</h4>
+            <p class="descricao">
+                <span class="texto-curto">
+                    {{ produto.descricao|truncatechars:100 }}
+                </span>
 
-            {% if produto.imagem %}
-                <img src="{{ produto.imagem.url }}" width="200">
+                <span class="texto-completo" style="display: none;">
+                    {{ produto.descricao }}
+                </span>
+                <button class="btn-mostrar" onclick="toggleDescricao(this)">
+                    Mostrar mais
+                </button>
+            </p>
+            <p class="estoque">
+                {% if produto.estoque > 0 %}
+                    Em estoque: {{ produto.estoque }} unidade{{ produto.estoque|pluralize }}
+                {% else %}
+                    <span class="sem-estoque">Produto indisponível</span>
+                {% endif %}
+            </p>
+            <strong>
+                R$ {{ produto.preco }}
+            </strong>
+            {% if produto.estoque > 0 %}
+                <a href="{% url 'reservar' produto.id %}">
+                    Reservar
+                </a>
+            {% else %}
+                <span style="color:red;">Esgotado</span>
             {% endif %}
         </div>
-        <hr>
-    {% empty %}
-        <p>Nenhum produto cadastrado.</p>
     {% endfor %}
+</main>
 </body>
+{% if request.GET.reserva == 'sucesso' %}
+<div class="modal-overlay" id="modal">
+    <div class="modal">
+        <h2>✅ Reserva realizada!</h2>
+
+        <p>
+            Sua reserva foi criada com sucesso.
+        </p>
+
+        <p>
+            📲 Uma mensagem foi enviada para você via WhatsApp.
+            Um funcionário enviará um QRCODE para que o pagamento seja efetuado.
+            Logo após você poderá retirar o(s) iten(s) da loja.
+        </p>
+
+        <p>Caso queira cancelar, nos comunique respondendo a mensagem enviada</p>
+
+        <p>
+            ⏱️ A reserva tem validade de <strong>30 minutos</strong>.
+            Caso a compra não seja deferida, será automaticamente cancelada.
+        </p>
+
+        <p style="color: red;"> ATENÇÃO: NÃO ESQUEÇA DE LEVAR O COMPROVANTE DA COMPRA
+            QUANDO FOR RETIRAR O(S) ITEN(S)
+        </p>
+
+        <button onclick="fecharModal()">Entendi</button>
+    </div>
+</div>
+{% endif %}
 </html>
+<script>
+function toggleDescricao(botao) {
+    const produto = botao.closest('.produto');
+    const textoCurto = produto.querySelector('.texto-curto');
+    const textoCompleto = produto.querySelector('.texto-completo');
+
+    if (textoCompleto.style.display === 'none') {
+        textoCompleto.style.display = 'inline';
+        textoCurto.style.display = 'none';
+        botao.innerText = 'Mostrar menos';
+    } else {
+        textoCompleto.style.display = 'none';
+        textoCurto.style.display = 'inline';
+        botao.innerText = 'Mostrar mais';
+    }
+}
+function fecharModal() {
+    document.getElementById('modal').style.display = 'none';
+
+    // remove o parâmetro da URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+}
+</script>

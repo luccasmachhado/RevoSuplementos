@@ -1,55 +1,78 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-
-class Categoria(models.Model):
-    nome = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True)
-
-    def __str__(self):
-        return self.nome
-
+from django.utils import timezone
+from datetime import timedelta
+from django.db import transaction
 
 class Produto(models.Model):
-    nome = models.CharField(max_length=200)
+    nome = models.CharField(max_length=100)
     descricao = models.TextField()
-    preco = models.DecimalField(max_digits=8, decimal_places=2)
-    estoque = models.PositiveIntegerField()
-    imagem = models.ImageField(upload_to='produtos/', blank=True, null=True)
 
-    categoria = models.ForeignKey(
-        Categoria,
-        on_delete=models.CASCADE,
-        related_name='produtos'
+    preco = models.DecimalField(
+        max_digits=8,
+        decimal_places=2
     )
 
-    criado_em = models.DateTimeField(auto_now_add=True)
+    estoque = models.PositiveIntegerField(default=0)
+
+    imagem = models.ImageField(
+        upload_to='produtos/',
+        default='produtos/default.png',
+        blank=True
+    )
+
     ativo = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nome
 
 
-class Pedido(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    criado_em = models.DateTimeField(auto_now_add=True)
-    finalizado = models.BooleanField(default=False)
+class Reserva(models.Model):
 
-    def __str__(self):
-        return f"Pedido #{self.id} - {self.usuario.username}"
-
-
-class ItemPedido(models.Model):
-    pedido = models.ForeignKey(
-        Pedido,
-        on_delete=models.CASCADE,
-        related_name='itens'
+    STATUS_CHOICES = (
+        ('pendente', 'pendente'),
+        ('deferida', 'deferida'),
+        ('cancelada', 'cancelada'),
     )
+
+    nome = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=20)
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    quantidade = models.PositiveIntegerField(default=1)
+    quantidade = models.PositiveIntegerField()
+    
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='pendente'
+    )
+
+    criada_em = models.DateTimeField(auto_now_add=True)
+    expira_em = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+        if not self.expira_em:
+            self.expira_em = timezone.now() + timedelta(minutes=30)  # tempo limite
+        super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.quantidade}x {self.produto.nome}"
+        return f"{self.nome} - {self.produto.nome} ({self.status})"
 
-    def subtotal(self):
-        return self.quantidade * self.produto.preco
+    def cancelar(self):
+        if self.status != 'pendente':
+            return
+
+        with transaction.atomic():
+            self.produto.estoque += self.quantidade
+            self.produto.save()
+
+            self.status = 'cancelada'
+            self.save()
+
+
+class Matricula(models.Model):
+    nome = models.CharField(max_length=100)
+    email = models.EmailField()
+    telefone = models.CharField(max_length=20)
+    plano = models.CharField(max_length=50)
+    data = models.DateTimeField(auto_now_add=True)
+
