@@ -9,7 +9,7 @@
 <body>
 
 <header class="topo">
-    <img src="../../static/loja/img/logo.png" alt="logo" class="img-logo">
+    <img src="{% static 'loja/img/logo.png' %}" alt="logo" class="img-logo">
     <p>Potencialize seus resultados</p>
 </header>
 
@@ -18,7 +18,11 @@
         <div class="produto-card">
             <h3>{{ produto.nome }}</h3>
             <div class="img-produto">
-                <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">    
+                {% if produto.imagem %}
+                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+                {% else %}
+                    <img src="{% static 'loja/img/imagem.png' %}" alt="Sem imagem">
+                {% endif %}
             </div>
             <h4>Descrição:</h4>
             <p class="descricao">
@@ -53,7 +57,6 @@
         </div>
     {% endfor %}
 </main>
-</body>
 {% if request.GET.reserva == 'sucesso' %}
 <div class="modal-overlay" id="modal">
     <div class="modal">
@@ -84,6 +87,7 @@
     </div>
 </div>
 {% endif %}
+</body>
 </html>
 <script>
 function toggleDescricao(botao) {
