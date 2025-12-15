@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Revolution Suplementos</title>
-    <link rel="stylesheet" href="{% static 'loja/css/style.css %}">
+    <link rel="stylesheet" href="{% static 'loja/style.css' %}">
 </head>
 <body>
 
 <header class="topo">
-    <img src="{% static 'loja/img/logo.png' %}" alt="logo" class="img-logo">
+    <img src="../../../media/padroes/logo.png" alt="logo" class="img-logo">
     <p>Potencialize seus resultados</p>
 </header>
 
@@ -18,11 +18,7 @@
         <div class="produto-card">
             <h3>{{ produto.nome }}</h3>
             <div class="img-produto">
-                {% if produto.imagem %}
-                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
-                {% else %}
-                    <img src="{% static 'loja/img/imagem.png' %}" alt="Sem imagem">
-                {% endif %}
+                <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">    
             </div>
             <h4>Descrição:</h4>
             <p class="descricao">
@@ -57,6 +53,7 @@
         </div>
     {% endfor %}
 </main>
+</body>
 {% if request.GET.reserva == 'sucesso' %}
 <div class="modal-overlay" id="modal">
     <div class="modal">
@@ -87,7 +84,6 @@
     </div>
 </div>
 {% endif %}
-</body>
 </html>
 <script>
 function toggleDescricao(botao) {

@@ -4,17 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Reservar {{ produto.nome }}</title>
-    <link rel="stylesheet" href="{% static 'loja/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'loja/style.css' %}">
 </head>
 <body>
     <div class="produto-card">
         <h1>Reservar produto</h1>
         <h2>{{ produto.nome }}</h2>
-        {% if produto.imagem %}
-            <img class="img-produto-b" src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
-        {% else %}
-            <img class="img-produto-b" src="{% static 'loja/img/imagem.png' %}" alt="Sem imagem">
-        {% endif %}
+        <img class="img-produto-b" src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">    
         <p>{{ produto.descricao }}</p>
         <p><strong>Estoque disponível:</strong> {{ produto.estoque }}</p>
     </div>
@@ -50,17 +46,17 @@
     </form>
     <br>
     <a href="{% url 'home' %}">Voltar</a>
-    <script>
-        function atualizarTotal(input) {
-            const preco = parseFloat(input.dataset.preco.replace(',', '.'));
-            const quantidade = parseInt(input.value) || 1;
-            const total = preco * quantidade;
-
-            const totalSpan = input.closest('.produto-card').querySelector('.total');
-            totalSpan.innerText = total.toFixed(2);
-        }
-    </script>
 </body>
 </html>
+<script>
+function atualizarTotal(input) {
+    const preco = parseFloat(input.dataset.preco.replace(',', '.'));
+    const quantidade = parseInt(input.value) || 1;
+    const total = preco * quantidade;
+
+    const totalSpan = input.closest('.produto-card').querySelector('.total');
+    totalSpan.innerText = total.toFixed(2);
+}
+</script>
 
 
