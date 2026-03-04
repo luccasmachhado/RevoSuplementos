@@ -86,21 +86,3 @@ Imagens
 Arquivos estáticos
 
 Utiliza a estrutura padrão do Django com staticfiles/ e media/.
-
-📂 Estrutura do Projeto
-RevoSuplementos/
-│
-├── manage.py
-├── requirements.txt
-├── runtime.txt
-├── db.sqlite3
-├── staticfiles/
-│
-├── revosuplementos/
-│   ├── loja/              # App principal
-│   ├── media/             # Arquivos enviados
-│   └── revosuplementos/   # Configurações do projeto
-│       ├── settings.py
-│       ├── urls.py
-│       ├── wsgi.py
-│       └── asgi.py
