@@ -1,19 +1,11 @@
 🏋️‍♂️ RevoSuplementos
 
-
-
-
-
-
-
-
 Sistema web desenvolvido com Django para gerenciamento de uma loja de suplementos.
 O projeto segue boas práticas de organização e estrutura padrão do framework.
 
 🔗 Repositório oficial no GitHub
 
 📌 Sobre o Projeto
-
 O RevoSuplementos é uma aplicação web construída com foco em:
 
 Estrutura organizada
@@ -45,7 +37,6 @@ Linguagem principal do projeto.
 Responsável por toda a lógica da aplicação e backend.
 
 🌿 Django
-
 Framework web de alto nível que permite:
 
 Roteamento automático
@@ -84,7 +75,6 @@ MySQL
 Outro banco relacional em produção
 
 🎨 Static Files
-
 Gerenciamento de:
 
 CSS
