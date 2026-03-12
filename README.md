@@ -4,7 +4,7 @@
 
 Este é um projeto de e-commerce básico e fictício desenvolvido para fins de estudo. O objetivo principal foi praticar a estruturação de uma aplicação web utilizando **Django** e realizar o ciclo completo de deploy em um ambiente de produção real.
 
-🚀 **Acesse o projeto online:** [Link do seu site no Render aqui]
+🚀 **Acesse o projeto online:** [https://revosuplementos.onrender.com/]
 
 ---
 
