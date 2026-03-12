@@ -64,6 +64,8 @@ python manage.py migrate
 python manage.py runserver
 Acesse: http://127.0.0.1:8000
 
+---
+
 🌐 Deploy em Produção
 O projeto foi configurado para rodar no Render. As principais configurações realizadas para produção incluem:
 
