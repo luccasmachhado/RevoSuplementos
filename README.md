@@ -1,88 +1,74 @@
-🏋️‍♂️ RevoSuplementos
+# 💊 Revolution Suplementos - E-commerce Fictício
 
-Sistema web desenvolvido com Django para gerenciamento de uma loja de suplementos.
-O projeto segue boas práticas de organização e estrutura padrão do framework.
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/ac1955fe-84ed-4243-bc31-aa0c88c39c79" />
 
-🔗 Repositório oficial no GitHub
+Este é um projeto de e-commerce básico e fictício desenvolvido para fins de estudo. O objetivo principal foi praticar a estruturação de uma aplicação web utilizando **Django** e realizar o ciclo completo de deploy em um ambiente de produção real.
 
-📌 Sobre o Projeto
-O RevoSuplementos é uma aplicação web construída com foco em:
+🚀 **Acesse o projeto online:** [Link do seu site no Render aqui]
 
-Estrutura organizada
+---
 
-Separação de responsabilidades
+## 🛠️ Tecnologias Utilizadas
 
-Escalabilidade
+* **Python 3.13** - Linguagem base.
+* **Django 5.0** - Framework Web.
+* **Gunicorn** - Servidor HTTP WSGI para produção.
+* **WhiteNoise** - Servidor de arquivos estáticos.
+* **SQLite** - Banco de dados (utilizado para fins de teste/estudo).
+* **Render** - Plataforma de Hospedagem (PaaS).
 
-Boas práticas do Django
+---
 
-O sistema pode ser expandido para incluir:
+## 📋 Funcionalidades do Projeto
 
-Cadastro de produtos
+* **Catálogo de Produtos:** Exibição dinâmica de suplementos cadastrados via painel administrativo.
+* **Gerenciamento de Estoque:** Controle básico de unidades disponíveis com alertas visuais de "Esgotado".
+* **Sistema de Reserva:** Fluxo simplificado onde o cliente reserva o produto e é direcionado para finalização via WhatsApp.
+* **Painel Administrativo:** Interface completa para gestão de produtos, categorias e reservas.
+* **Interface Responsiva:** Layout adaptado para dispositivos móveis e desktop.
 
-Carrinho de compras
+---
 
-Sistema de pedidos
+## 🔧 Configuração Local
 
-Painel administrativo
+Caso queira rodar este projeto localmente, siga os passos abaixo:
 
-Upload de imagens
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+   cd seu-repositorio
 
-Controle de estoque
+2. Crie e ative um ambiente virtual:
 
-🧠 Tecnologias Utilizadas
-🐍 Python
+Bash
+python -m venv .venv
+# No Windows:
+.venv\Scripts\activate
+# No Linux/Mac:
+source .venv/bin/activate
 
-Linguagem principal do projeto.
-Responsável por toda a lógica da aplicação e backend.
+3. Instale as dependências:
 
-🌿 Django
-Framework web de alto nível que permite:
+Bash
+pip install -r requirements.txt
 
-Roteamento automático
+4. Execute as migrações e inicie o servidor:
 
-ORM integrado
+Bash
+python manage.py migrate
+python manage.py runserver
+Acesse: http://127.0.0.1:8000
 
-Sistema de autenticação
+🌐 Deploy em Produção
+O projeto foi configurado para rodar no Render. As principais configurações realizadas para produção incluem:
 
-Segurança contra SQL Injection e CSRF
+Uso do gunicorn para servir a aplicação.
 
-Admin Panel pronto para uso
+Configuração do whitenoise para gerenciar arquivos CSS, JS e imagens.
 
-Estrutura MVC (MTV no Django)
+Tratamento de variáveis de ambiente para a SECRET_KEY e ALLOWED_HOSTS.
 
-O projeto segue a arquitetura:
+📝 Notas de Estudo
+Este projeto é um MVP (Minimum Viable Product) e não possui integração real com gateways de pagamento ou persistência de dados em volumes de disco externos (devido às limitações da camada gratuita do Render). É uma prova de conceito focada em lógica de back-end e infraestrutura.
 
-Model → Template → View
-🗄 SQLite
-
-Banco de dados padrão utilizado durante o desenvolvimento.
-
-Vantagens:
-
-Leve
-
-Fácil configuração
-
-Ideal para projetos em fase inicial
-
-Pode ser facilmente substituído por:
-
-PostgreSQL
-
-MySQL
-
-Outro banco relacional em produção
-
-🎨 Static Files
-Gerenciamento de:
-
-CSS
-
-JavaScript
-
-Imagens
-
-Arquivos estáticos
-
-Utiliza a estrutura padrão do Django com staticfiles/ e media/.
+Desenvolvido por [Lucas Machado] - [https://www.linkedin.com/in/luccas-machhado/]
