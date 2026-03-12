@@ -41,7 +41,6 @@ Caso queira rodar este projeto localmente, siga os passos abaixo:
 
 Crie e ative um ambiente virtual:
 
-Bash
 python -m venv .venv
 # No Windows:
 .venv\Scripts\activate
@@ -49,7 +48,6 @@ python -m venv .venv
 source .venv/bin/activate
 Instale as dependências:
 
-Bash
 pip install -r requirements.txt
 
 Ajuste para Modo de Desenvolvimento (Importante):
@@ -61,10 +59,8 @@ Garanta que ALLOWED_HOSTS = ['*'] ou inclua 'localhost'.
 
 Execute as migrações e inicie o servidor:
 
-Bash
 python manage.py migrate
 
-Bash
 python manage.py runserver
 Acesse: http://127.0.0.1:8000
 
