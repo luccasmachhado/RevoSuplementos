@@ -39,7 +39,7 @@ Caso queira rodar este projeto localmente, siga os passos abaixo:
    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
    cd seu-repositorio
 
-2. Crie e ative um ambiente virtual:
+Crie e ative um ambiente virtual:
 
 Bash
 python -m venv .venv
@@ -47,20 +47,24 @@ python -m venv .venv
 .venv\Scripts\activate
 # No Linux/Mac:
 source .venv/bin/activate
-
-3. Instale as dependências:
+Instale as dependências:
 
 Bash
 pip install -r requirements.txt
+Ajuste para Modo de Desenvolvimento (Importante):
+Para evitar o Erro 500 localmente, abra o arquivo revosuplementos/settings.py e altere temporariamente:
 
-4. Execute as migrações e inicie o servidor:
+Mude DEBUG = False para DEBUG = True.
+
+Garanta que ALLOWED_HOSTS = ['*'] ou inclua 'localhost'.
+
+Execute as migrações e inicie o servidor:
 
 Bash
 python manage.py migrate
 
 Bash
 python manage.py runserver
-
 Acesse: http://127.0.0.1:8000
 
 🌐 Deploy em Produção
