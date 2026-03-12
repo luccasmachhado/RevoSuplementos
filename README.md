@@ -51,8 +51,9 @@ Instale as dependências:
 
 Bash
 pip install -r requirements.txt
+
 Ajuste para Modo de Desenvolvimento (Importante):
-Para evitar o Erro 500 localmente, abra o arquivo revosuplementos/settings.py e altere temporariamente:
+Para evitar o Erro 500 localmente, abra o arquivo revosuplementos/settings.py e altere:
 
 Mude DEBUG = False para DEBUG = True.
 
