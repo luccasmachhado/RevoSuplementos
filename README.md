@@ -42,7 +42,7 @@ Crie e ative um ambiente virtual:
 
 # No Windows:
    ```bash
-      python -m venv .venv````
+      python -m venv .venv```
 
 Caso o script Activate.ps1 do ambiente virtual do Python esteja sendo barrado pela Execution Policy, execute o seguinte código no PowerShell:
 
