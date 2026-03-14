@@ -42,18 +42,18 @@ Crie e ative um ambiente virtual:
 
 # No Windows:
    ```bash
-      python -m venv .venv```
+   python -m venv .venv
 
 Caso o script Activate.ps1 do ambiente virtual do Python esteja sendo barrado pela Execution Policy, execute o seguinte código no PowerShell:
 
    ```bash
-      Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
    ```bash
-      .venv\Scripts\activate
+   .venv\Scripts\activate
 # No Linux/Mac:
    ```bash
-      sudo apt update
+   sudo apt update
 
 sudo apt install python3-venv
 
