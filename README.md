@@ -41,11 +41,19 @@ Caso queira rodar este projeto localmente, siga os passos abaixo:
 Crie e ative um ambiente virtual:
 
 # No Windows:
-python -m venv .venv
+   ```bash
+      python -m venv .venv
 
-.venv\Scripts\activate
+Caso o script Activate.ps1 do ambiente virtual do Python esteja sendo barrado pela Execution Policy, execute o seguinte código no PowerShell:
+
+   ```bash
+      Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+   ```bash
+      .venv\Scripts\activate
 # No Linux/Mac:
-sudo apt update
+   ```bash
+      sudo apt update
 
 sudo apt install python3-venv
 
