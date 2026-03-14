@@ -40,10 +40,17 @@ Caso queira rodar este projeto localmente, siga os passos abaixo:
 
 Crie e ative um ambiente virtual:
 
-python -m venv .venv
 # No Windows:
+python -m venv .venv
+
 .venv\Scripts\activate
 # No Linux/Mac:
+sudo apt update
+
+sudo apt install python3-venv
+
+python3 -m venv venv
+
 source .venv/bin/activate
 
 Instale as dependências:
