@@ -35,8 +35,8 @@ Caso queira rodar este projeto localmente, siga os passos abaixo:
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
-   cd seu-repositorio
+   git clone https://github.com/seu-usuario/RevoSuplementos.git
+   cd revosuplementos
 
 Crie e ative um ambiente virtual:
 
@@ -45,6 +45,7 @@ python -m venv .venv
 .venv\Scripts\activate
 # No Linux/Mac:
 source .venv/bin/activate
+
 Instale as dependências:
 
 pip install -r requirements.txt
