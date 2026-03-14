@@ -103,9 +103,9 @@ Execute as migrações e inicie o servidor:
    python manage.py runserver
    ```
 
-   ```python
-   Acesse: http://127.0.0.1:8000
-   ```
+
+Acesse: http://127.0.0.1:8000
+
 
 ---
 
