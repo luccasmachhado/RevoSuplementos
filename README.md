@@ -88,13 +88,17 @@ Garanta que ALLOWED_HOSTS = ['*'] ou inclua 'localhost'.
 
 Execute as migrações e inicie o servidor:
 
-   ```bash
-
+   ```python
    python manage.py migrate
+   ```
 
+   ```python
    python manage.py runserver
+   ```
 
+   ```python
    Acesse: http://127.0.0.1:8000
+   ```
 
 ---
 
