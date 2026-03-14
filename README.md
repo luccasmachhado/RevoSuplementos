@@ -50,7 +50,7 @@ Caso o script Activate.ps1 do ambiente virtual do Python esteja sendo barrado pe
    ```powershell
    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
    ```
-ative a venv:
+Ative a venv:
 
    ```python
    .venv\Scripts\activate
@@ -74,7 +74,7 @@ ative a venv:
    ```
 #
 
-entre na pasta subpasta
+Entre na pasta subpasta
 
    ```python
    cd revosuplementos
