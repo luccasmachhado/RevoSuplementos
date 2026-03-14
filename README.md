@@ -72,6 +72,7 @@ ative a venv:
    ```python
    source .venv/bin/activate
    ```
+---
 
 Instale as dependências:
 
