@@ -49,21 +49,25 @@ Caso o script Activate.ps1 do ambiente virtual do Python esteja sendo barrado pe
    ```bash
    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
+ative a venv:
+
    ```bash
    .venv\Scripts\activate
+
 # No Linux/Mac:
    ```bash
    sudo apt update
 
-sudo apt install python3-venv
+   sudo apt install python3-venv
 
-python3 -m venv .venv
+   python3 -m venv .venv
 
-source .venv/bin/activate
+   source .venv/bin/activate
 
 Instale as dependências:
 
-pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
 
 Ajuste para Modo de Desenvolvimento (Importante):
 Para evitar o Erro 500 localmente, abra o arquivo revosuplementos/settings.py e altere:
@@ -74,10 +78,13 @@ Garanta que ALLOWED_HOSTS = ['*'] ou inclua 'localhost'.
 
 Execute as migrações e inicie o servidor:
 
-python manage.py migrate
+   ```bash
 
-python manage.py runserver
-Acesse: http://127.0.0.1:8000
+   python manage.py migrate
+
+   python manage.py runserver
+
+   Acesse: http://127.0.0.1:8000
 
 ---
 
