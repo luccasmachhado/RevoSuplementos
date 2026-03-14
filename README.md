@@ -41,33 +41,43 @@ Caso queira rodar este projeto localmente, siga os passos abaixo:
 Crie e ative um ambiente virtual:
 
 # No Windows:
-   ```bash
+   ```python
    python -m venv .venv
+   ```
 
 Caso o script Activate.ps1 do ambiente virtual do Python esteja sendo barrado pela Execution Policy, execute o seguinte código no PowerShell:
 
-   ```bash
+   ```python
    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-
+   ```
 ative a venv:
 
-   ```bash
+   ```python
    .venv\Scripts\activate
+   ```
 
 # No Linux/Mac:
-   ```bash
+   ```python
    sudo apt update
+   ```
 
+   ```python
    sudo apt install python3-venv
+   ```
 
+   ```python
    python3 -m venv .venv
+   ```
 
+   ```python
    source .venv/bin/activate
+   ```
 
 Instale as dependências:
 
-   ```bash
+   ```python
    pip install -r requirements.txt
+   ```
 
 Ajuste para Modo de Desenvolvimento (Importante):
 Para evitar o Erro 500 localmente, abra o arquivo revosuplementos/settings.py e altere:
