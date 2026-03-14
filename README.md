@@ -74,6 +74,12 @@ ative a venv:
    ```
 #
 
+entre na pasta subpasta
+
+   ```python
+   cd revosuplementos
+   ```
+
 Instale as dependências:
 
    ```python
